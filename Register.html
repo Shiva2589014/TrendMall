@@ -14,8 +14,8 @@
       integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7"
       crossorigin="anonymous"
     />
-
     <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./Mediaqueries.css">
   </head>
   <body class="container border shadow-lg">
     <header>
@@ -40,29 +40,47 @@
         <button><i class="fas fa-shopping-cart"></i>Cart (0)</button>
       </div>
     </header>
-    <h2 class="section-title pb-3 border-bottom ms-5 me-5">Login</h2>
-    <div class="container   d-flex justify-content-center align-itemes-center ">
-      <form action="" class=" contact" >
-        <div >
-            <label for="name" class="form-label"> Full Name</label>
-            <input type="text" id="name"  placeholder="name@example.com" class="form-control form-control-sm">
-          </div>
-        <div >
-          <label for="email" class="form-label">Email address</label>
-          <input type="text" id="email"  placeholder="name@example.com" class="form-control form-control-sm">
+    <h2 class="section-title pb-3 border-bottom ms-5 me-5 m">Register</h2>
+    <div class="container d-flex justify-content-center align-itemes-center">
+      <form action="" class="contact">
+        <div>
+          <label for="name" class="form-label"> Full Name</label>
+          <input
+            type="text"
+            id="name"
+            placeholder="name@example.com"
+            class="form-control form-control-sm"
+          />
         </div>
-        <div >
-            <label for="Password" class="form-label">Password</label>
-            <input type="Password" id="Password"  placeholder="Password" class="form-control form-control-sm">
-          </div>
-        
-        <div class="Loginregister my-3">Already has an account<a href="./Register.html">Login</a></div>
+        <div>
+          <label for="email" class="form-label">Email address</label>
+          <input
+            type="text"
+            id="email"
+            placeholder="name@example.com"
+            class="form-control form-control-sm"
+          />
+        </div>
+        <div>
+          <label for="Password" class="form-label">Password</label>
+          <input
+            type="Password"
+            id="Password"
+            placeholder="Password"
+            class="form-control form-control-sm"
+          />
+        </div>
+
+        <div class="Loginregister my-3">
+          Already has an account<a href="./login.html">Login</a>
+        </div>
         <div class="d-flex justify-content-center align-itemes-center mb-5">
-          <button  id="btn" class=" btn btn-secondary ">Register</button>
+          <button id="btn" class="btn btn-secondary">Register</button>
         </div>
       </form>
     </div>
     <footer>Made with ❤️ by SHIVA V.</footer>
-    <script src="./app.js"></script>
+    <script src="./NavButton.js"></script>
+    
   </body>
 </html>

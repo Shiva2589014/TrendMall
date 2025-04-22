@@ -26,19 +26,19 @@ function productdetails(data) {
     // productsContainer.innerHTML = " ";
     div.className = "product";
     div.innerHTML = `
-    <div class="card text-center shadow-sm d-flex flex-column">
+    <div class="card text-center d-flex flex-column">
       <img src="${product.image}" class="card-img-top p-3 product-image" alt="${product.title}">
       <div class="card-body flex-grow-1 d-flex flex-column justify-content-between">
         <h5 class="card-title">${product.title.slice(0, 12)}...</h5>
         <p class="card-text">${product.description.slice(0, 90)}...</p>
       </div>
-      <div class="product-price w-100 text-center border-top border-bottom p-2 fw-bold text-secondary">
+      <div class="product-price w-100 text-center border-top border-bottom p-2  text-secondary">
         $${product.price}
       </div>
-      <div class="card-footer bg-transparent d-flex justify-content-center">
-        <button class="btn btn-dark  m-3">Details</button>
-        <button class="btn btn-dark m-3">Add to Cart</button>
-      </div>
+      <div class=" d-flex justify-content-center">
+        <button class="btn btn-dark  m-3 " id="cardbutton">Details</button>
+        <button class="btn btn-dark  m-3 " id="cardbutton">Add to Cart</button>
+      </div> 
     </div>
   `;
   
@@ -86,3 +86,14 @@ Jewelery.addEventListener("click", function () {
 
   productdetails(data);
 });
+  document.getElementById("Login").addEventListener("click", function () {
+    window.location.href = "./login.html";
+  });
+  document.getElementById("Register").addEventListener("click", function () {
+    window.location.href = "./Register.html";
+  });
+  document.getElementById("Cart").addEventListener("click", function () {
+    window.location.href = "./Cart.html";
+  });
+
+
