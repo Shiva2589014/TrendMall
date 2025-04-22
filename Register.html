@@ -31,8 +31,8 @@
       <nav>
         <a href="./index.html">Home</a>
         <a href="./product.html">Products</a>
-        <a href="#">About</a>
-        <a href="#">Contact</a>
+        <a href="./aboutUs.html">About</a>
+        <a href="./contactUs.html">Contact</a>
       </nav>
       <div class="nav-buttons">
         <button><i class="fas fa-sign-in-alt"></i>Login</button>
@@ -40,30 +40,29 @@
         <button><i class="fas fa-shopping-cart"></i>Cart (0)</button>
       </div>
     </header>
-
-    <div class="banner container">
-      <div>
-        <h2>New Season Arrivals</h2>
-        <p class="mr-5">
-          This is a wider card with supporting text below as a natural lead-in
-          to additional content. This content is a little bit longer.
-        </p>
-      </div>
+    <h2 class="section-title pb-3 border-bottom ms-5 me-5">Login</h2>
+    <div class="container   d-flex justify-content-center align-itemes-center ">
+      <form action="" class=" contact" >
+        <div >
+            <label for="name" class="form-label"> Full Name</label>
+            <input type="text" id="name"  placeholder="name@example.com" class="form-control form-control-sm">
+          </div>
+        <div >
+          <label for="email" class="form-label">Email address</label>
+          <input type="text" id="email"  placeholder="name@example.com" class="form-control form-control-sm">
+        </div>
+        <div >
+            <label for="Password" class="form-label">Password</label>
+            <input type="Password" id="Password"  placeholder="Password" class="form-control form-control-sm">
+          </div>
+        
+        <div class="Loginregister my-3">Already has an account<a href="./Register.html">Login</a></div>
+        <div class="d-flex justify-content-center align-itemes-center mb-5">
+          <button  id="btn" class=" btn btn-secondary ">Register</button>
+        </div>
+      </form>
     </div>
-
-    <h2 class="section-title py-3 border-bottom ms-5 me-5">Latest Products</h2>
-    <div class="filters">
-      <button id="All">All</button>
-      <button id="Men_clothing">Men's Clothing</button>
-      <button id="Women_clothing">Women's Clothing</button>
-      <button id="Jewelery">Jewelery</button>
-      <button id="Electronics">Electronics</button>
-    </div>
-
-    <div class="" id="products"></div>
-
     <footer>Made with ❤️ by SHIVA V.</footer>
-
-  <script src="./app.js"></script>
+    <script src="./app.js"></script>
   </body>
 </html>

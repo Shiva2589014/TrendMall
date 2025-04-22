@@ -26,14 +26,22 @@ function productdetails(data) {
     // productsContainer.innerHTML = " ";
     div.className = "product";
     div.innerHTML = `
-      <div class="p-4">
-      <img src="${product.image}" alt="${product.title}" /></div>
-      <section class="text-center"><h3>${product.title.slice(0,12)}...</h3>
-      <p class="p-2">${product.description.slice(0, 90)}...</p></section>
-      <p class="price p-2 border-bottom border-top">$${product.price}</p>
-      <button class="mb-4">Details</button>
-      <button>Add to Cart</button>
-    `;
+    <div class="card text-center shadow-sm d-flex flex-column">
+      <img src="${product.image}" class="card-img-top p-3 product-image" alt="${product.title}">
+      <div class="card-body flex-grow-1 d-flex flex-column justify-content-between">
+        <h5 class="card-title">${product.title.slice(0, 12)}...</h5>
+        <p class="card-text">${product.description.slice(0, 90)}...</p>
+      </div>
+      <div class="product-price w-100 text-center border-top border-bottom p-2 fw-bold text-secondary">
+        $${product.price}
+      </div>
+      <div class="card-footer bg-transparent d-flex justify-content-center">
+        <button class="btn btn-dark  m-3">Details</button>
+        <button class="btn btn-dark m-3">Add to Cart</button>
+      </div>
+    </div>
+  `;
+  
     productsContainer.appendChild(div);
   });
 }

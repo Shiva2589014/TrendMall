@@ -40,30 +40,27 @@
         <button><i class="fas fa-shopping-cart"></i>Cart (0)</button>
       </div>
     </header>
-
-    <div class="banner container">
-      <div>
-        <h2>New Season Arrivals</h2>
-        <p class="mr-5">
-          This is a wider card with supporting text below as a natural lead-in
-          to additional content. This content is a little bit longer.
-        </p>
-      </div>
+    <h2 class="section-title py-3 border-bottom ms-5 me-5">Contact Us</h2>
+    <div class="container   d-flex justify-content-center align-itemes-centere contactcontainer">
+      <form action="" class="p-3 contact" >
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input type="text" id="name"  placeholder="Enter your name" class="form-control form-control-sm">
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" id="name" placeholder="name@example.com" class="form-control form-control-sm">
+        </div>
+        <div class="mb-3">
+          <label for="message" class="form-label">Message</label>
+         <textarea id="message" class="form-control form-control-sm" rows="5" placeholder="Enter your message"></textarea>
+        </div> 
+        <div class="d-flex justify-content-center align-itemes-centere">
+          <button  id="btn" class=" btn btn-secondary ">send</button>
+        </div>
+      </form>
     </div>
-
-    <h2 class="section-title py-3 border-bottom ms-5 me-5">Latest Products</h2>
-    <div class="filters">
-      <button id="All">All</button>
-      <button id="Men_clothing">Men's Clothing</button>
-      <button id="Women_clothing">Women's Clothing</button>
-      <button id="Jewelery">Jewelery</button>
-      <button id="Electronics">Electronics</button>
-    </div>
-
-    <div class="" id="products"></div>
-
     <footer>Made with ❤️ by SHIVA V.</footer>
-
-  <script src="./app.js"></script>
+    <script src="./app.js"></script>
   </body>
 </html>
