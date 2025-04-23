@@ -34,7 +34,7 @@ header nav a {
   text-decoration: none;
   color: gray;
 }
- nav a:focus {
+nav a:focus {
   text-decoration: none;
   color: black;
 }
@@ -48,7 +48,6 @@ header nav a {
   border: 1px solid;
   background-color: white;
   font-size: 14px;
-
 }
 
 .nav-buttons i {
@@ -84,7 +83,6 @@ header nav a {
 .filters {
   text-align: center;
   margin: 50px;
-
 }
 
 .filters button {
@@ -96,7 +94,7 @@ header nav a {
   border-radius: 5px;
 }
 
- #products {
+#products {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 25px;
@@ -146,7 +144,7 @@ header nav a {
 .product-image {
   height: 300px;
   width: 100%;
-  object-fit:fill;
+  object-fit: fill;
 }
 
 /* Optional: Make product card height consistent */
@@ -162,7 +160,6 @@ header nav a {
 footer {
   text-align: center;
   margin-top: 70px;
-
 }
 .Threelineicon {
   display: none;
@@ -172,43 +169,37 @@ footer {
   display: none;
 }
 /* styles for Contact Us */
-.contact{
+.contact {
   width: 350px;
 }
-.contactcontainer{
+.contactcontainer {
   height: 400px;
 }
-div label{
-font-size: 14px;
+div label {
+  font-size: 14px;
 }
-div #btn{
+div #btn {
   width: 65px;
   height: 30px;
   font-size: 14px;
   color: white;
   padding: 5px;
-  }
-  /* Login page style start Here */
-  .Loginregister{
-font-size: 14px;
-  }
-
-/* Responsive Breakpoints */
-/* @media (max-width: 2560px) {
-  .products {
-    grid-template-columns: repeat(4, 1fr);
-  }
+}
+/* Login page style start Here */
+.Loginregister {
+  font-size: 14px;
 }
 
-@media (max-width: 1440px) {
-  .products {
-    grid-template-columns: repeat(3, 1fr);
-  }
+/* cart styles start hear */
+img.product-img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  border-radius: 8px;
 }
-
-@media (max-width: 1024px) {
-  .products {
-    grid-template-columns: repeat(2, 1fr);
-  }
+.cart-item {
+  background: #f9f9f9;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 15px;
 }
-*/

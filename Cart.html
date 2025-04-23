@@ -1,57 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cart</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cart</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"/>
+ <link rel="stylesheet" href="./styles.css">
+ <link rel="stylesheet" href="./Mediaqueries.css">
+ 
+ <style>
+    img.product-img {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      border-radius: 8px;
+    }
+    .cart-item {
+      background: #f9f9f9;
+      padding: 15px;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+    .quantity-btn {
+      background: none;
+      border: none;
+      font-size: 1.2rem;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .quantity-btn:hover {
+      color: darkred;
+    }
+  </style>
+</head>
+<body class="container border shadow-lg">
+  <header>
+    <input
+      type="checkbox"
+      id="toggle"
+      placeholder="Search..."
+      class="search-bar"
     />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="./styles.css">
-    <link rel="stylesheet" href="./Mediaqueries.css">
-  </head>
-  <body class="container border shadow-lg">
-    <header>
-      <input
-        type="checkbox"
-        id="toggle"
-        placeholder="Search..."
-        class="search-bar"
-      />
-      <label for="toggle" class="Threelineicon">&#9776;</label>
-      <div><strong class="fs-4">Ecommerce</strong></div>
+    <label for="toggle" class="Threelineicon">&#9776;</label>
+    <div><strong class="fs-4">Ecommerce</strong></div>
 
-      <nav>
-        <a href="./index.html">Home</a>
-        <a href="./product.html">Products</a>
-        <a href="./aboutUs.html">About</a>
-        <a href="./contactUs.html">Contact</a>
-      </nav>
-      <div class="nav-buttons">
-        <button id="Login"><i class="fas fa-sign-in-alt"></i>Login</button>
-        <button id="Register"><i class="fas fa-user-plus"></i>Register</button>
-        <button id="Cart"><i class="fas fa-shopping-cart"></i>Cart(0)</button>
-      </div>
-    </header>
-    <h2 class="section-title py-3 border-bottom ms-5 me-5">Latest Products</h2>
-    <div class="p-5 my-3 d-fex justify-content-center align-items center border">
-        <div class="cartdetailes border row border w-25 h-25">
-            <div class="card col-md-1 col-sm-1">
-
-            </div>
-        </div>
-        <div class="border w-25 h-25">
-
-        </div>
+    <nav>
+      <a href="./index.html">Home</a>
+      <a href="./product.html">Products</a>
+      <a href="./aboutUs.html">About</a>
+      <a href="./contactUs.html">Contact</a>
+    </nav>
+    <div class="nav-buttons">
+      <a href="./login.html"
+        ><button id="Login">
+          <i class="fas fa-sign-in-alt"></i>Login
+        </button></a
+      >
+      <a href="./Register.html"
+        ><button id="Register">
+          <i class="fas fa-user-plus"></i>Register
+        </button></a
+      >
+      <a href="./Cart.html"
+        ><button id="Cart">
+          <i class="fas fa-shopping-cart"></i>Cart(0)
+        </button></a
+      >
     </div>
-    <footer>Made with ❤️ by SHIVA V.</footer>
-    <script src="./app.js"></script>
-  </body>
+  </header>
+  <h2 class="section-title pb-3 border-bottom ms-5 me-5 m">Cart</h2>
+
+  <div class="row px-5">
+    <div class="col-md-8">
+      <h5 class="border p-3 rounded">Item List</h5>
+      <div id="product"></div>
+    </div>
+    <div class="col-md-4">
+      <div id="summary"></div>
+    </div>
+  </div>
+
+  <footer class="text-center my-4">Made with ❤️ by SHIVA V.</footer>
+
+  <script>
+    // load cart data from localStorage
+    let cartData = JSON.parse(localStorage.getItem("trendmall")) || [];
+    if (!Array.isArray(cartData)) cartData = [cartData];
+    cartData = cartData.map(item => ({ ...item, quantity: item.quantity || 1 }));
+
+    const productContainer = document.getElementById("product");
+
+    function updateSummary() {
+      const summaryBox = document.getElementById("summary");
+      let totalQuantity = 0, totalPrice = 0, shipping = 30;
+      cartData.forEach(i => {
+        totalQuantity += i.quantity;
+        totalPrice += i.price * i.quantity;
+      });
+      summaryBox.innerHTML = `
+        <div class="card shadow-sm p-3">
+          <h5 class="border-bottom pb-2">Order Summary</h5>
+          <p>Products (${totalQuantity})<span class="float-end">$${totalPrice.toFixed(2)}</span></p>
+          <p>Shipping<span class="float-end">$${shipping.toFixed(2)}</span></p>
+          <p class="fw-bold">Total Amount<span class="float-end">$${(totalPrice + shipping).toFixed(2)}</span></p>
+          <button class="btn btn-dark w-100 mt-2">Go to checkout</button>
+        </div>
+      `;
+    }
+
+    function renderCartItems() {
+      productContainer.innerHTML = "";
+      cartData.forEach((item, idx) => {
+        const div = document.createElement("div");
+        div.className = "cart-item shadow-sm";
+        div.innerHTML = `
+          <div class="d-flex align-items-center">
+            <img src="${item.image}" class="product-img me-3" alt="${item.title}">
+            <div class="flex-grow-1">
+              <h6>${item.title}</h6>
+            </div>
+            <div class="d-flex align-items-center">
+              <button class="quantity-btn p-3" onclick="changeQuantity(${idx}, -1)">−</button>
+              <span class="mx-2">${item.quantity}</span>
+              <button class="quantity-btn p-3" onclick="changeQuantity(${idx}, 1)">+</button>
+            </div>
+          </div>
+          <div class="d-flex justify-content-end mt-2">
+            <span>${item.quantity} x $${item.price.toFixed(2)}</span>
+          </div>
+        `;
+        productContainer.appendChild(div);
+      });
+      updateSummary();
+      localStorage.setItem("trendmall", JSON.stringify(cartData));
+    }
+
+    function changeQuantity(index, delta) {
+      cartData[index].quantity += delta;
+      if (cartData[index].quantity <= 0) {
+        cartData.splice(index, 1);
+      }
+      renderCartItems();
+    }
+
+    // initial render
+    renderCartItems();
+  </script>
+</body>
 </html>

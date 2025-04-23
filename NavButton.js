@@ -9,3 +9,5 @@ document.getElementById("Register").addEventListener("click", function () {
 document.getElementById("Cart").addEventListener("click", function () {
   window.location.href = "./Cart.html";
 });
+
+

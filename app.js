@@ -12,6 +12,7 @@ async function products() {
   let productdata = fetch("https://fakestoreapi.com/products");
   let data = await productdata;
   jsondata = await data.json();
+  console.log(jsondata);
   productdetails(jsondata);
 }
 function productdetails(data) {
@@ -32,7 +33,7 @@ function productdetails(data) {
       </div>
       <div class=" d-flex justify-content-center">
         <button class="btn btn-dark  m-3 " id="cardbutton">Details</button>
-        <button class="btn btn-dark  m-3 " id="cardbutton">Add to Cart</button>
+        <button class="btn btn-dark  m-3 " id="cardbutton" onclick=addcart(${product.id})>Add to Cart</button>
       </div> 
     </div>
   `;
@@ -81,6 +82,7 @@ Jewelery.addEventListener("click", function () {
 
   productdetails(data);
 });
+
 document.getElementById("Login").addEventListener("click", function () {
   window.location.href = "./login.html";
 });
@@ -90,3 +92,22 @@ document.getElementById("Register").addEventListener("click", function () {
 document.getElementById("Cart").addEventListener("click", function () {
   window.location.href = "./Cart.html";
 });
+
+
+let data = [];
+function addcart(id)
+{
+ let tempdata= jsondata.find((item)=>item.id==id);
+ data.push(tempdata);
+ alert(`Hello siva, You have added ${tempdata.title}`);
+ localStorage.setItem("trendmall", JSON.stringify(data));
+ totalAmount();
+}
+function totalAmount() {
+  let Amount = data.reduce((acc, price) => acc + price.price, 0);
+  console.log(Amount); 
+}
+ 
+
+
+
