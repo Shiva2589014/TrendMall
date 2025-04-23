@@ -34,7 +34,7 @@ header nav a {
   text-decoration: none;
   color: gray;
 }
-header nav a:focus {
+ nav a:focus {
   text-decoration: none;
   color: black;
 }
