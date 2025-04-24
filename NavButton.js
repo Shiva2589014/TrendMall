@@ -1,13 +1,7 @@
 
-document.getElementById("Register").addEventListener("click", function () {
-  window.location.href = "./Register.html";
-  document.getElementById("Login").addEventListener("click", function () {
-    window.location.href = "./login.html";
-  });
-  
-});
-document.getElementById("Cart").addEventListener("click", function () {
-  window.location.href = "./Cart.html";
-});
 
+
+let cartData = JSON.parse(localStorage.getItem("trendmall")) || [];
+const cartCount = document.getElementById("Cart");
+ cartCount.innerHTML = `<i class="fas fa-shopping-cart"></i>Cart(${cartData.length})`;
 
