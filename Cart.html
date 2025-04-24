@@ -88,9 +88,13 @@
     let cartData = JSON.parse(localStorage.getItem("trendmall")) || [];
     if (!Array.isArray(cartData)) cartData = [cartData];
     cartData = cartData.map(item => ({ ...item, quantity: item.quantity || 1 }));
-
+console.log(cartData);
     const productContainer = document.getElementById("product");
-
+    if (cartData.length === 0) {
+      productContainer.innerHTML = `<div class="alert alert-info">Your cart is empty</div>`;
+      document.getElementById("summary").innerHTML = "";
+      
+    }
     function updateSummary() {
       const summaryBox = document.getElementById("summary");
       let totalQuantity = 0, totalPrice = 0, shipping = 30;
@@ -121,9 +125,9 @@
               <h6>${item.title}</h6>
             </div>
             <div class="d-flex align-items-center">
-              <button class="quantity-btn p-3" onclick="changeQuantity(${idx}, -1)">−</button>
-              <span class="mx-2">${item.quantity}</span>
-              <button class="quantity-btn p-3" onclick="changeQuantity(${idx}, 1)">+</button>
+              <button class="quantity-btn p-5" onclick="changeQuantity(${idx}, -1)">−</button>
+              <span class="m5-2">${item.quantity}</span>
+              <button class="quantity-btn p-5" onclick="changeQuantity(${idx}, 1)">+</button>
             </div>
           </div>
           <div class="d-flex justify-content-end mt-2">
