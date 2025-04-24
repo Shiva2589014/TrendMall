@@ -17,14 +17,13 @@
     font-size: 6px;
     height: 25px;
   }
-  #product{
+  #product {
     height: auto;
   }
   .product button {
     height: fit-content;
     font-size: 8px;
   }
- 
 }
 
 @media (max-width: 425px) {
@@ -103,7 +102,7 @@
 
   #products {
     grid-template-columns: repeat(2, 1fr);
-   gap: 2px;
+    gap: 2px;
     margin: 0px 2px 150px;
     padding: 0 5px;
   }
