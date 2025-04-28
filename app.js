@@ -99,7 +99,6 @@ function addcart(id)
 {
  let tempdata= jsondata.find((item)=>item.id==id);
  data.push(tempdata);
- alert(`Hello siva, You have added ${tempdata.title}`);
  localStorage.setItem("trendmall", JSON.stringify(data));
  totalAmount();
 }

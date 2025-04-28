@@ -31,33 +31,6 @@ function updateSummary() {
     totalPrice += i.price * i.quantity;
   });
   summaryBox.innerHTML = `
-    <div class="card shadow-sm">
-      <h5>rder Summary</h5>
-      <hr class=" border-bottom">
-     <div class="d-flex justify-content-between">
-      <p>Products (${totalQuantity})<span class="float-end">$${totalPrice.toFixed(
-    2
-  )}</span></p>
-      <p>Shipping<span class="float-end">$${shipping.toFixed(2)}</span></p>
-      <p class="fw-bold">Total Amount<span class="float-end">$${(
-        totalPrice + shipping
-      ).toFixed(2)}</span></p>
-      <button class="btn btn-dark w-100 mt-2">Go to checkout</button>
-      </div>
-    </div>
-  `;
-}
-
-function updateSummary() {
-  const summaryBox = document.getElementById("summary");
-  let totalQuantity = 0,
-    totalPrice = 0,
-    shipping = 30;
-  cartData.forEach((i) => {
-    totalQuantity += i.quantity;
-    totalPrice += i.price * i.quantity;
-  });
-  summaryBox.innerHTML = `
     <div class="card shadow-sm p-3">
       <h5 class="border-bottom pb-2">Order Summary</h5>
       <p>Products (${totalQuantity})<span class="float-end">$${totalPrice.toFixed(
