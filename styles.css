@@ -8,6 +8,7 @@
   box-sizing: border-box;
 }
 
+
 body {
   background-color: #f9f9f9;
   color: #333;
@@ -34,10 +35,18 @@ header nav a {
   text-decoration: none;
   color: gray;
 }
-nav a:focus {
-  text-decoration: none;
+header nav a:hover,header nav a :focus{
   color: black;
 }
+
+ 
+ button:hover,
+ button:focus {
+  background-color: black !important;
+  color: white !important;
+  border-color: black !important;
+}
+
 
 .nav-buttons button {
   margin-left: 10px;
@@ -49,6 +58,7 @@ nav a:focus {
   background-color: white;
   font-size: 14px;
 }
+
 
 .nav-buttons i {
   margin-right: 5px;
@@ -203,3 +213,4 @@ img.product-img {
   border-radius: 10px;
   margin-bottom: 15px;
 }
+
