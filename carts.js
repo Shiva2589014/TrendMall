@@ -18,8 +18,7 @@ cartData.forEach((item) => {
 });
 
 cartData = combinedCartData;
-console.log( combinedCartData.length);
-
+console.log(combinedCartData.length);
 
 const productContainer = document.getElementById("product");
 let maincart = document.getElementById("maincart");
@@ -51,9 +50,13 @@ function updateSummary() {
   summaryBox.innerHTML = `
     <div class="card shadow-sm p-3">
       <h5 class="border-bottom pb-2">Order Summary</h5>
-      <p>Products (${totalQuantity})<span class="float-end">$${totalPrice.toFixed(2)}</span></p>
+      <p>Products (${totalQuantity})<span class="float-end">$${totalPrice.toFixed(
+    2
+  )}</span></p>
       <p>Shipping<span class="float-end">$${shipping.toFixed(2)}</span></p>
-      <p class="fw-bold">Total Amount<span class="float-end">$${(totalPrice + shipping).toFixed(2)}</span></p>
+      <p class="fw-bold">Total Amount<span class="float-end">$${(
+        totalPrice + shipping
+      ).toFixed(2)}</span></p>
       <button class="btn btn-dark w-100 mt-2">Go to checkout</button>
     </div>
   `;
@@ -78,32 +81,34 @@ function renderCartItems() {
   cartData.forEach((item, idx) => {
     const div = document.createElement("div");
     div.className = "cart-item shadow-sm";
-    div.innerHTML = ` 
-    <div class="d-flex flex-column flex-md-row align-items-start justify-content-between gap-3 mb-4">
-      <!-- Image and Title Side-by-Side -->
-      <div class="d-flex align-items-center flex-shrink-0" style="min-width: 0;">
-        <img src="${item.image}" class="product-img me-3" alt="${
-        item.title
-      }" style="width: 80px; height: auto;">
-        <h6 class="ps-2 w-75 text-break">${item.title}</h6>
-      </div>
+    div.innerHTML = `
+    <div class="d-flex flex-wrap align-items-center gap-4  rounded p-3 mb-3">
+      
+      <!-- Product Image -->
+      <img src="${item.image}" alt="${item.title}" style="width: 80px; height: 80px; object-fit: contain;" class="rounded">
   
-      <!-- Quantity Controls -->
-      <div class="w-100 w-md-50 text-center d-grid" 
-           style="grid-template-columns: repeat(3, auto); justify-content: center; align-items: center;">
+      <!-- Product Name -->
+      <h5 class="flex-grow-1 w-50 p-2 m-0">${item.title}</h5>
+  
+      <!-- Quantity Controls and Price -->
+      <div class="d-flex flex-column align-items-center gap-2">
         
-        <button class="btn" onclick="changeQuantity(${idx}, -1)">−</button>
-        <span class="fw-bold px-3">${item.quantity}</span>
-        <button class="btn" onclick="changeQuantity(${idx}, 1)">+</button>
-  
-       
-        <div style="grid-column: 1 / -1;">
-          <span>${item.quantity} × $${item.price.toFixed(2)}</span>
+        <!-- Quantity Buttons -->
+        <div class="d-flex align-items-center gap-2">
+          <button class="btn btn-sm btn-light" onclick="changeQuantity(${idx}, -1)">−</button>
+          <span class="fw-bold px-2">${item.quantity}</span>
+          <button class="btn btn-sm btn-light" onclick="changeQuantity(${idx}, 1)">+</button>
         </div>
+  
+        <!-- Price -->
+        <div class="text-muted small">${item.quantity} × $${item.price.toFixed(2)}</div>
+  
       </div>
   
     </div>
   `;
+  
+
     productContainer.appendChild(div);
   });
   updateSummary();
